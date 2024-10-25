@@ -360,15 +360,11 @@ open class PhoneNumberTextField: UITextField, UITextFieldDelegate {
         let vc = CountryCodePickerViewController(utility: utility,
                                                  options: withDefaultPickerUIOptions)
         vc.delegate = self
-        if let nav = containingViewController?.navigationController, !CountryCodePicker.forceModalPresentation {
-            nav.pushViewController(vc, animated: true)
-        } else {
-            let nav = UINavigationController(rootViewController: vc)
-            if modalPresentationStyle != nil {
-                nav.modalPresentationStyle = modalPresentationStyle!
-            }
-            containingViewController?.present(nav, animated: true)
+        let nav = UINavigationController(rootViewController: vc)
+        if modalPresentationStyle != nil {
+            nav.modalPresentationStyle = modalPresentationStyle!
         }
+        containingViewController?.present(nav, animated: true)
     }
 
     /// containingViewController looks at the responder chain to find the view controller nearest to itself
