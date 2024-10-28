@@ -553,12 +553,8 @@ extension PhoneNumberTextField: CountryCodePickerDelegate {
         partialFormatter.defaultRegion = country.code
         updateFlag()
         updatePlaceholder()
-
-        if let nav = containingViewController?.navigationController, !CountryCodePicker.forceModalPresentation {
-            nav.popViewController(animated: true)
-        } else {
-            containingViewController?.dismiss(animated: true)
-        }
+        
+        containingViewController?.dismiss(animated: true)
     }
 }
 
