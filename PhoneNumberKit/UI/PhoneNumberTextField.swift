@@ -555,6 +555,10 @@ extension PhoneNumberTextField: CountryCodePickerDelegate {
         updatePlaceholder()
         
         containingViewController?.dismiss(animated: true)
+
+        if #available(iOS 13.0, *) {
+            self._delegate?.textFieldDidChangeSelection?(self)
+        }
     }
 }
 
