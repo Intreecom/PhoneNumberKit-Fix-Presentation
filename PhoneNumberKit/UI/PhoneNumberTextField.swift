@@ -357,6 +357,7 @@ open class PhoneNumberTextField: UITextField, UITextFieldDelegate {
 
     @objc func didPressFlagButton() {
         guard withDefaultPickerUI else { return }
+        self.endEditing(true)
         let vc = CountryCodePickerViewController(utility: utility,
                                                  options: withDefaultPickerUIOptions)
         vc.delegate = self
